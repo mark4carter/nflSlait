@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Item - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/shop-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<script src="js/teaEc.js"></script>
+	<script src="js/testor.js"></script>
+	
+	    <!-- load angular -->
+    <script src="http://code.angularjs.org/1.2.6/angular.js"></script> 
+    <script src="js/app.js"></script>
+
+</head>
+
+<body class="atrans">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SLAIT Predict</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="SetForm.html">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container trans">
+
+        <div class="row">
+
+            <div  ng-app="validationApp" ng-contoller="mainController" class="col-md-4">
+                <p class="lead">Sign In</p>
+                <!-- <div class="list-group">
+                    <a href="#" class="list-group-item active">Category 1</a>
+                    <a href="#" class="list-group-item">Category 2</a>
+                    <a href="#" class="list-group-item">Category 3</a>
+                </div> -->
+                <form name="userForm" ng-submit="submitForm(userForm.$valid)" class="form-horizontal" novalidate>
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                        <label class="control-label col-md-4">User Name:</label>
+                        <div class="col-md-8">
+                            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" placeholder="Enter Username" required>
+							<p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+						</div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <label class="control-label col-md-4">Name:</label>
+                        <div class="col-md-8">
+                            <input type="text" name="name" class="form-control" ng-model="name" placeholder="Enter Password" required>
+							<p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Password is Required.</p>
+                        </div>
+						
+                    </div>
+
+						<button type="submit" class="btn btn-primary pull-right" ng-disabled="userForm.$invalid">Submit</button>
+
+                </form>
+				
+				<br><br>
+				
+				
+            </div>
+
+            <div class="col-md-1"></div>
+
+            <div class="col-md-6">
+
+                <div class="thumbnail">
+                    <h2 class="text-center text-primary text-uppercase">LeaderBoard</h2>
+                <div class="well btrans">
+
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-11">
+                            <span class="text-success">Users</span>
+                            <span class="pull-right text-success">Scores</span>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12 bg-warning">
+                            <strong>
+                                <div class="col-md-1">1st</div>KramerFan
+                                <span class="pull-right">25</span>
+                            </strong>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Jason Johnson</p></em>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12 bg-info">
+                            <strong>
+                                <div class="col-md-1">2nd</div>AvocadoJuice
+                                <span class="pull-right">23</span>
+                            </strong>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Freddie Prinze</p></em>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12 bg-info">
+                            <strong>
+                                <div class="col-md-1">3rd</div>iHeartCoffee
+                                <span class="pull-right">22</span>
+                            </strong>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Tom Hanks</p></em>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>Anonymous
+                                <span class="pull-right">19</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Billy Bob</p></em>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>EdibleTomatoes
+                                <span class="pull-right">12</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Jason Statham</p></em>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>Anonymous
+                                <span class="pull-right">7</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Billy Bob</p></em>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>EdibleTomatoes
+                                <span class="pull-right">4</span>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-1"></div>
+                            <p><em>&nbsp;&nbsp;&nbsp; Jason Statham</p></em>
+                        </div>
+                    </div>
+
+                </div>
+                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                  
+                </div>
+
+            </div>
+
+            <div class="col-md-1"></div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
