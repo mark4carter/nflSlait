@@ -9,12 +9,16 @@ var FireUserDB = new Firebase("https://scorching-fire-509.firebaseio.com/UserDB"
 
 
 
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ["firebase"]);
 
 // create angular controller
-app.controller('mainCtrl', function($scope) {
+app.controller('mainCtrl', function($scope, $firebaseArray) {
+
+	var ref = new Firebase("https://scorching-fire-509.firebaseio.com/UserDB");
 
 	$scope.errorOne = false;
+	var query = ref.orderByChild("Score");
+	$scope.messages = $firebaseArray(query);
 
 	$scope.submitForm = function() {
 
@@ -29,18 +33,6 @@ app.controller('mainCtrl', function($scope) {
 				$scope.errorOne = true;
 	  	}
 	  });
-
-
-  	//$scope.$digest();
-
-		/*FireUserDB.once("value", function(data) {
-			for ( var i = 0; i < data.val().length; i++) {
-				if (data.val()[i].UserID == $scope.username2) {
-					if (data.val()[i].PassHash == $scope.password2){
-						document.location.href = "./setForm.html"
-					}
-				}
-			}*/
 	}
 
 	$scope.registerBtn = function() {
@@ -69,3 +61,9 @@ app.controller('regCtrl', function($scope) {
 
 	}
 })
+
+app.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});

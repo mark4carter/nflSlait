@@ -88,7 +88,7 @@
                     <div class="form-group col-md-10" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
                         <label class="control-label col-md-4">User Name:</label>
                         <div class="col-md-8">
-                            <input type="text" name="username" class="form-control" ng-model="username" ng-minlength="3" ng-maxlength="8" placeholder="Enter Username" required>
+                            <input type="text" name="username" class="form-control" ng-model="username" ng-minlength="3" ng-maxlength="25" placeholder="Enter Username" required>
                             <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
                             <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
                         </div>

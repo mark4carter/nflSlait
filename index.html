@@ -39,6 +39,9 @@
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
     <script src="js/app.js"></script>
 
 </head>
@@ -77,7 +80,7 @@
         <!-- /.container -->
     </nav>
     <!-- Page Content -->
-    <div class="container trans">
+    <div class="container trans" ng-controller="mainCtrl">
 
         <div class="row">
 
@@ -87,7 +90,7 @@
                     <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
                         <label class="control-label col-md-4">User Name:</label>
                         <div class="col-md-8">
-                            <input type="text" name="username" class="form-control" ng-model="username2" ng-minlength="3" ng-maxlength="20" placeholder="Enter Username" required>
+                            <input type="text" name="username" class="form-control" ng-model="username2" ng-minlength="3" ng-maxlength="25" placeholder="Enter Username" required>
 							<p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
 							<p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
 						</div>
@@ -113,123 +116,87 @@
 
             <div class="col-md-1"></div>
 
+            
             <div class="col-md-6">
 
                 <div class="thumbnail">
-                    <h2 class="text-center text-primary text-uppercase">LeaderBoard</h2>
-                <div class="well btrans">
+                        <h2 class="text-center text-primary text-uppercase">LeaderBoard</h2>
+                    <div class="well btrans">
 
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-11">
-                            <span class="text-success">Users</span>
-                            <span class="pull-right text-success">Scores</span>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12 bg-warning">
-                            <strong>
-                                <div class="col-md-1">1st</div>
-                                <div class="col-md-10">KramerFan</div>
-                                <span class="pull-right">25</span>
-                            </strong>
-                        </div>
-                        <div class="col-md-12">
+                        <div class="row">
                             <div class="col-md-1"></div>
-                            <p class="col-md-10"><em>&nbsp;&nbsp;Jason Johnson</p></em>
+                            <div class="col-md-11">
+                                <span class="text-success">Users</span>
+                                <span class="pull-right text-success">Scores</span>
+                            </div>
                         </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12 bg-warning">
+                                <strong>
+                                    <div class="col-md-1">1st</div>
+                                    <div class="col-md-11">KramerFan
+                                        <span class="pull-right">25</span>
+                                    </div>
+                                </strong>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-1"></div>
+                                <p class="col-md-10"><em>&nbsp;&nbsp;Jason Johnson</p></em>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12 bg-info">
+                                <strong>
+                                    <div class="col-md-1">2nd</div>AvocadoJuice
+                                    <span class="pull-right">23</span>
+                                </strong>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-1"></div>
+                                <p><em>&nbsp;&nbsp;&nbsp; Freddie Prinze</p></em>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12 bg-info">
+                                <strong>
+                                    <div class="col-md-1">3rd</div>iHeartCoffee
+                                    <span class="pull-right">22</span>
+                                </strong>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-1"></div>
+                                <p><em>&nbsp;&nbsp;&nbsp; Tom Hanks</p></em>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div ng-repeat="message in messages | reverse">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-1"></div>{{message.UserID}}
+                                        <span class="pull-right">{{message.Score}}</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-1"> </div>
+                                    <p><em>&nbsp;&nbsp;&nbsp; {{message.FirstName}} {{message.LastName}}</em></p>
+                                <hr>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12 bg-info">
-                            <strong>
-                                <div class="col-md-1">2nd</div>AvocadoJuice
-                                <span class="pull-right">23</span>
-                            </strong>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>
-                            <p><em>&nbsp;&nbsp;&nbsp; Freddie Prinze</p></em>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12 bg-info">
-                            <strong>
-                                <div class="col-md-1">3rd</div>iHeartCoffee
-                                <span class="pull-right">22</span>
-                            </strong>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>
-                            <p><em>&nbsp;&nbsp;&nbsp; Tom Hanks</p></em>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>Anonymous
-                                <span class="pull-right">19</span>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>
-                            <p><em>&nbsp;&nbsp;&nbsp; Billy Bob</p></em>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>EdibleTomatoes
-                                <span class="pull-right">12</span>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>
-                            <p><em>&nbsp;&nbsp;&nbsp; Jason Statham</p></em>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>Anonymous
-                                <span class="pull-right">7</span>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>
-                            <p><em>&nbsp;&nbsp;&nbsp; Billy Bob</p></em>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>EdibleTomatoes
-                                <span class="pull-right">4</span>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-md-1"></div>
-                            <p><em>&nbsp;&nbsp;&nbsp; Jason Statham</p></em>
-                        </div>
-                    </div>
-
-                </div>
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
-                  
                 </div>
-
             </div>
 
             <div class="col-md-1"></div>
